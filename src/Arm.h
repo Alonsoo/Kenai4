@@ -28,6 +28,7 @@ public:
 	double aArm;
 	double maxSpeed;
 	bool btnChange;
+	int position_values[4];
 
 	Arm(int pwm1, int pwm2, int potChan, int stickChan=0);
 

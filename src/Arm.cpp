@@ -26,6 +26,11 @@ pot(potChan, 250)
 	aArm=0;
 	maxSpeed=0.5;
 	btnChange=true;
+//	position_values[0]=0;
+//	position_values[1]=30;
+//	position_values[2]=80;
+//	position_values[3]=150;
+	position_values[0]=0,30,80,150;
 	// TODO Auto-generated constructor stub
 }
 
@@ -105,7 +110,7 @@ int Arm::NewPosition (int btn){
 			return position;
 		}
 		if(stick.GetRawButton(btn)){
-			return (btn-1)*30;
+			return position_values[(btn-1)];
 		}else{
 			return NewPosition(btn+1);
 		}

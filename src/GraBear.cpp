@@ -33,7 +33,20 @@ void GraBear::Set(double power1, double power2){
 }
 
 void GraBear::Grab(){
+		if(stick.GetPOV()==0||stick.GetPOV()==45||stick.GetPOV()==315){
+			p1=0.7;
+		}
+		else if(stick.GetPOV()==135||stick.GetPOV()==180||stick.GetPOV()==225){
+			p1=-0.7;
+		}
 	p1=( (stick.GetRawAxis(2)!=0.0)?1:0 ) - ( (stick.GetRawAxis(3)!=0.0)?1:0 );
+
+		if(stick.GetPOV()==45||stick.GetPOV()==90||stick.GetPOV()==135){
+			p2=-0.7;
+		}
+		else if(stick.GetPOV()==225||stick.GetPOV()==270||stick.GetPOV()==315){
+			p2=0.7;
+		}
 	p2= ( (stick.GetPOV()==90)?1:0 ) - ( (stick.GetPOV()==270)?1:0 );
 	//Set(   (stick.GetRawAxis(2)-stick.GetRawAxis(3))/1.5   );
 	Set(p1,p2);
