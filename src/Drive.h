@@ -15,6 +15,7 @@ public:
 	Talon frontLeft;
 	Talon backRight;
 	Talon backLeft;
+	Servo servo;
 	Joystick stick;
 	Gyro gyro;
 	PIDController pid;

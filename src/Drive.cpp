@@ -12,6 +12,7 @@ frontRight(pwm1),
 frontLeft(pwm2),
 backRight(pwm3),
 backLeft(pwm4),
+servo(4),
 stick(stickChan),
 gyro(2),
 pid(1, 0.01, 0.0, &gyro, NULL)
@@ -19,7 +20,7 @@ pid(1, 0.01, 0.0, &gyro, NULL)
 	Y=0;
 	X=0;
 	X2=0;
-	//gX=0;
+	gX=0;
 	heading=gyro.GetAngle();
 	gyroError=0;
 	deadzone=20;
@@ -50,7 +51,7 @@ void Drive::MecanumDrive(){
 		Y=0;
 	}
 	else{
-		Y=-stick.GetY()*0.7;
+		Y=-(stick.GetY()-0.3);
 	}
 
 //	if(stick.GetPOV()==45||stick.GetPOV()==90||stick.GetPOV()==135){
@@ -60,17 +61,17 @@ void Drive::MecanumDrive(){
 //		X=0.7;
 //	}
 /*	else*/ if(abs(stick.GetX()*100)<deadzone){
-		X=gX;
+		X=0;
 	}
 	else{
-		X=-stick.GetX()*0.7;
+		X=-(stick.GetX()-0.3);
 	}
 
 	if(abs(stick.GetRawAxis(4)*100)<deadzone){
 		X2=gX;
 	}
 	else{
-		X2=-stick.GetRawAxis(4)*0.7;
+		X2=-(stick.GetRawAxis(4)-0.3);
 	}
 
 
@@ -107,6 +108,15 @@ void Drive::Precision(){
 	}
 	else{
 		PChange=true;
+	}
+}
+
+void Drive::Paraguas(){
+	if(stick.GetRawButton(5)){
+		servo.Set(250);
+	}
+	else if(stick.GetRawButton(6)){
+		servo.Set(0);
 	}
 }
 
