@@ -34,8 +34,8 @@ public:
 	void Set(double pfr, double pfl, double pbr, double pbl);
 	double Accelerate(double power, double *a);
 	void MecanumDrive();
-	//void Gyro();
 	void Precision();
+	void Paraguas();
 	virtual ~Drive();
 };
 
