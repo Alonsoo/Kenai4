@@ -51,7 +51,7 @@ void Drive::MecanumDrive(){
 		Y=0;
 	}
 	else{
-		Y=-(stick.GetY()-0.3);
+		Y=-( ((stick.GetY()-0.2) * (1/(1-0.2))) ^2 );
 	}
 
 //	if(stick.GetPOV()==45||stick.GetPOV()==90||stick.GetPOV()==135){
@@ -64,14 +64,14 @@ void Drive::MecanumDrive(){
 		X=0;
 	}
 	else{
-		X=-(stick.GetX()-0.3);
+		X=-( ((stick.GetX()-0.2) * (1/(1-0.2))) ^2 );
 	}
 
 	if(abs(stick.GetRawAxis(4)*100)<deadzone){
 		X2=gX;
 	}
 	else{
-		X2=-(stick.GetRawAxis(4)-0.3);
+		X2=-( ((stick.GetRawAxis(4)-0.2) * (1/(1-0.2))) ^2 );
 	}
 
 
