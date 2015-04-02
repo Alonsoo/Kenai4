@@ -83,6 +83,9 @@ public:
 			sd->PutNumber("p2",grabear.p2);
 			sd->PutNumber("maxSpeed", arm.maxSpeed);
 			sd->PutNumber("pid",drive.pid.Get());
+			sd->PutNumber("Gyro Angle",drive.gyro.GetAngle());
+			sd->PutNumber("Gyro Rate",drive.gyro.GetRate());
+			sd->PutNumber("Heading",drive.heading);
 //			SmartDashboard::PutNumber("DB/Slider 0", arm.GetAngle());
 //			SmartDashboard::PutNumber("DB/Slider 1", arm.maxSpeed);
 //			arm.maxSpeed=SmartDashboard::GetNumber("DB/Slider 2");

@@ -86,6 +86,16 @@ void Drive::Precision(){
 }
 
 
+void Drive::Paraguas(){
+	if(stick.GetRawButton(5)){
+		servo.Set(250);
+	}
+	else if(stick.GetRawButton(6)){
+		servo.Set(0);
+	}
+}
+
+
 Drive::~Drive() {
 	// TODO Auto-generated destructor stub
 }

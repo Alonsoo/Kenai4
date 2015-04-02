@@ -21,6 +21,8 @@ pid(1, 0.01, 0.0, &gyro, NULL)
 	X=0;
 	X2=0;
 	gX=0;
+	gyro.InitGyro();
+	Wait(2000);
 	heading=gyro.GetAngle();
 	gyroError=0;
 	deadzone=20;
